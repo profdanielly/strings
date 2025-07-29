@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JavaScript, DOM, Funções e Métodos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    .slide {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+      padding: 40px;
+    }
+
+    .active {
+      display: flex;
+    }
+
+    h1, h2 {
+      color: #00c3ff;
+    }
+
+    ul {
+      margin-top: 10px;
+    }
+
+    code {
+      background-color: #333;
+      padding: 3px 5px;
+      border-radius: 5px;
+      font-size: 0.95em;
+    }
+
+    pre {
+      background: #1e1e1e;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 20px;
+      background: #00c3ff;
+      border: none;
+      border-radius: 8px;
+      color: black;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slide 1: JavaScript -->
+  <div class="slide active">
+    <h1>O que é JavaScript?</h1>
+    <p><strong>JavaScript</strong> é uma linguagem de programação usada para tornar sites interativos e dinâmicos.</p>
+    <ul>
+      <li>Cria animações e efeitos visuais</li>
+      <li>Responde a ações do usuário (cliques, teclas, etc.)</li>
+      <li>Valida formulários antes de enviar</li>
+      <li>Permite atualizar conteúdo sem recarregar a página</li>
+    </ul>
+    <p>🔧 Exemplo: abrir um menu ao clicar em um botão.</p>
+  </div>
+
+  <!-- Slide 2: DOM -->
+  <div class="slide">
+    <h1>O que é o DOM?</h1>
+    <p><strong>DOM</strong> significa <em>Document Object Model</em> (Modelo de Objeto do Documento).</p>
+    <p>🧠 Ele é a representação da página HTML em forma de uma estrutura que o JavaScript pode acessar e modificar.</p>
+
+    <h3>🏠 Analogia da casa:</h3>
+    <ul>
+      <li><strong>A casa</strong> é o <code>HTML</code></li>
+      <li><strong>Cada cômodo</strong> representa uma <code>&lt;div&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;section&gt;</code></li>
+      <li><strong>Os móveis</strong> são os conteúdos: <code>&lt;p&gt;</code>, <code>&lt;button&gt;</code>, <code>&lt;img&gt;</code></li>
+      <li><strong>A planta da casa</strong> é o <strong>DOM</strong>: descreve os cômodos, o que eles contêm e onde estão</li>
+    </ul>
+
+    <h3>🧾 Exemplo HTML:</h3>
+    <pre><code>&lt;section&gt;
+  &lt;p id="mensagem"&gt;Olá, visitante!&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+
+    <h3>👀 Como o JavaScript vê isso no DOM:</h3>
+    <pre><code>document.getElementById("mensagem").innerText = "Bem-vindo!";</code></pre>
+
+    <p>👉 O JavaScript localiza o parágrafo com ID <code>mensagem</code> e altera seu conteúdo.</p>
+  </div>
+
+  <!-- Slide 3: Funções -->
+  <div class="slide">
+    <h1>O que é uma Função?</h1>
+    <p>Função é um bloco de código reutilizável que executa uma tarefa específica.</p>
+
+    <h3>🍓 Analogia: Fazendo um suco de morango</h3>
+    <ul>
+      <li>📦 Os <strong>parâmetros</strong> são os ingredientes: morango, água e açúcar</li>
+      <li>🔄 A <strong>função</strong> é o liquidificador — ela processa os ingredientes</li>
+      <li>🥤 O <strong>resultado</strong> é o suco pronto, que a função retorna</li>
+    </ul>
+
+    <h3>🔧 Exemplo em JavaScript:</h3>
+    <pre><code>function fazerSuco(fruta, agua, acucar) {
+  return "Suco de " + fruta + " com " + agua + "ml de água e " + acucar + "g de açúcar.";
+}
+
+let resultado = fazerSuco("morango", 200, 20);
+console.log(resultado); // Suco de morango com 200ml de água e 20g de açúcar.
+</code></pre>
+
+    <p>📌 A função recebe valores, executa algo e devolve um resultado (o suco 🧃).</p>
+  </div>
+
+  <!-- Slide 4: Resumo -->
+  <div class="slide">
+    <h2>Resumo Final</h2>
+    <ul>
+      <li><strong>JavaScript:</strong> torna a página web viva e interativa</li>
+      <li><strong>DOM:</strong> é como uma planta da casa — descreve toda a estrutura que o JavaScript pode manipular</li>
+      <li><strong>Funções:</strong> são como liquidificadores — recebem ingredientes, processam e entregam o resultado</li>
+    </ul>
+    <p>🎓 Agora é hora de praticar no código!</p>
+  </div>
+
+  <!-- Slide 5: Métodos split, join e sort -->
+  <div class="slide">
+    <h1>Métodos úteis em JavaScript</h1>
+
+    <h3>1️⃣ split() – Dividindo uma string</h3>
+    <p>🧩 Divide uma string em partes menores (como cortar uma frase em palavras).</p>
+    <pre><code>let frase = "Olá mundo bonito";
+let palavras = frase.split(" ");
+console.log(palavras); // ["Olá", "mundo", "bonito"]</code></pre>
+    <p>🔍 A string foi transformada em um array de palavras.</p>
+
+    <h3>2️⃣ join() – Juntando elementos</h3>
+    <p>🔗 Junta os itens de um array em uma string, usando um separador.</p>
+    <pre><code>let palavras = ["Olá", "mundo", "bonito"];
+let frase = palavras.join(" ");
+console.log(frase); // "Olá mundo bonito"</code></pre>
+    <p>📌 É o contrário do split.</p>
+
+    <h3>3️⃣ sort() – Ordenando elementos</h3>
+    <p>📚 Organiza os elementos de um array em ordem alfabética ou numérica.</p>
+    <pre><code>let nomes = ["Carlos", "Ana", "Beatriz"];
+nomes.sort();
+console.log(nomes); // ["Ana", "Beatriz", "Carlos"]</code></pre>
+    <p>🗂️ O array foi reorganizado em ordem crescente.</p>
+  </div>
+
+  <!-- Botão de navegação -->
+  <button onclick="nextSlide()">Próximo</button>
+
+  <!-- Script de navegação -->
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function nextSlide() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
